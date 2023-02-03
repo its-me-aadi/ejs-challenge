@@ -73,12 +73,9 @@ const SearchName=_.lowerCase(postTitle);
   res.redirect("/");
 })
 
-app.get("/:topic",function(req,res){
-  console.log("yo bitch!");
+app.get("/posts/:topic",function(req,res){
   Post.findOne({searchName:_.lowerCase(req.params.topic)},function(err,list){
     if(!err){
-        console.log("both are equal");
-        console.log(list.searchName +" tu bhadwa h");
         res.render("post",{postPage:list});
         
   }
