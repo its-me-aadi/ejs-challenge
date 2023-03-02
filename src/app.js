@@ -6,15 +6,6 @@ const _=require("lodash");
 const DB='mongodb+srv://itsadityasharma7124:Jaishreeram123@cluster0.rgyn6el.mongodb.net/ejsChallenge?retryWrites=true&w=majority'
 
 const mongoose = require("mongoose");
-mongoose.connect(DB,function(err){
-  if(!err){
-      console.log("succcessfully connected");
-  }
-  else{
-      console.log(err);
-  }
-});
-
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -23,7 +14,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set('strictQuery',false);
-mongoose.connect("mongodb://127.0.0.1:27017/ejsChallenge");
+mongoose.connect(DB,function(err){
+  if(!err){
+      console.log("succcessfully connected");
+  }
+  else{
+      console.log(err);
+  }
+});
 
 const postSchema=new mongoose.Schema({
   name:String,
