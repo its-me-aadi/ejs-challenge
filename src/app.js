@@ -1,11 +1,19 @@
-
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _=require("lodash");
 
+const DB='mongodb+srv://itsadityasharma7124:Jaishreeram123@cluster0.rgyn6el.mongodb.net/ejsChallenge?retryWrites=true&w=majority'
+
 const mongoose = require("mongoose");
+mongoose.connect(DB,function(err){
+  if(!err){
+      console.log("succcessfully connected");
+  }
+  else{
+      console.log(err);
+  }
+});
 
 const app = express();
 
