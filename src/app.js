@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _=require("lodash");
 
-const DB='mongodb+srv://itsadityasharma7124:Jaishreeram123@cluster0.rgyn6el.mongodb.net/ejsChallenge?retryWrites=true&w=majority'
+dbPass=process.env.DB_PASSWORD;
+const DB='mongodb+srv://itsadityasharma7124:'+dbPass+'@cluster0.rgyn6el.mongodb.net/ejsChallenge?retryWrites=true&w=majority'
 
 const mongoose = require("mongoose");
 const app = express();
